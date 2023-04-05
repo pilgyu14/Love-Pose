@@ -58,6 +58,9 @@ public class PoseComponent : IComponent
         }
     }
 
+    /// <summary>
+    /// Q 와 E 입력을 통해 포즈 취하기와 해제 
+    /// </summary>
     public void UpdateSomething()
     {
         if (_playerController.IsPosing == true)
@@ -77,6 +80,10 @@ public class PoseComponent : IComponent
         }
     }
     
+    /// <summary>
+    /// 포즈 애니메이션 실행 
+    /// </summary>
+    /// <param name="isPose"></param>
     private void AnimatePose(bool isPose)
     {
         switch (_curPoseType)
@@ -93,6 +100,9 @@ public class PoseComponent : IComponent
         }
     }
     int a = 0; 
+    /// <summary>
+    /// 포즈 변경 
+    /// </summary>
     private void ChangePose()
     {
         if (_poseIndex >= _poseList.Count )
@@ -112,6 +122,10 @@ public class PoseComponent : IComponent
         AnimatePose(true); 
     }
 
+    /// <summary>
+    /// 현재 포즈 찾기 
+    /// </summary>
+    /// <returns></returns>
     public AbstractPose FIndCurPose()
     {
         return _poseList.Find((x) => x._poseType == _curPoseType);
